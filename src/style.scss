@@ -1,0 +1,148 @@
+@import './assets/styles/mixins';
+@import './assets/styles/variables';
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $bg-color;
+  color: $fg-color;
+  font-family: "Lato", sans-serif;
+  font-size: 12pt;
+  line-height: 1.25;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+
+  /* Remove excess padding and border in Firefox 4+ */
+  &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+  }
+}
+
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.cards {
+  width: 100%;
+  position: relative;
+  margin: 50px 0;
+}
+
+.cards__grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $cards-grid-width;
+  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+}
+
+.cards__empty {
+  color: beige;
+  font-size: 52px;
+}
+
+.card {
+  @extend %transitionBlock;
+  width: $cards-width;
+  height: $cards-height;
+  overflow: hidden;
+  z-index: 2;
+  cursor: pointer;
+  will-change: transform;
+  margin: 15px;
+}
+
+.card__poster {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.card:hover {
+  filter: contrast(1.2);
+  z-index: 4;
+  transform: scale(1.1);
+}
+
+.icon {
+  color: beige;
+  cursor: pointer;
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+.search-toggle {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.search__wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparentize(#000, 0.4);
+  z-index: 99;
+}
+
+.search__input {
+  color: beige;
+  font-size: 52px;
+  border-bottom: 1px solid beige;
+  text-align: center;
+  font-weight: 100;
+}
+
+.search__close {
+  color: beige;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+  }
